@@ -13,7 +13,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 300
     proxy: DIRECT
-    url: "https://sub.voxelcat.net:16666/CKg3abstVnOeRpm1aB5G/download/collection/Mihomo?target=ClashMeta"
+    url: "机场订阅"
     #override:
     #  additional-prefix: "[守候网络] " # 给此机场机场-B的节点头部加名字，引号内名字可以改。
   
