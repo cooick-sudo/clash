@@ -87,9 +87,9 @@ Final = select, 国外, 国内, img-url=https://github.voxelcat.net/https://raw.
 香港-手动 = select, 香港节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png
 香港-故转 = fallback, 香港节点, interval=60, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png
 
-美国-自动 = url-test, 美国节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/US.png
-美国-手动 = select, 美国节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/US.png
-美国-故转 = fallback, 美国节点, interval=60, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/US.png
+美国-自动 = url-test, 美国节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/USA.png
+美国-手动 = select, 美国节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/USA.png
+美国-故转 = fallback, 美国节点, interval=60, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/USA.png
 
 日本-自动 = url-test, 日本节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/JP.png
 日本-手动 = select, 日本节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/JP.png
@@ -205,5 +205,6 @@ hostname=
 ca-p12=
 ca-passphrase=
 skip-server-cert-verify=false
+
 
 
