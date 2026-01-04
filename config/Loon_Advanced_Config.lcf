@@ -148,6 +148,7 @@ https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rul
 https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/hbo.list, policy=Stream Media, tag=HBO, enabled=true
 https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/amazon.list, policy=Stream Media, tag=Amazon, enabled=true
 https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.list, policy=Stream Media, tag=Spotify, enabled=true
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/pikpak.list, policy=Stream Media, tag=PiaPak, enabled=true
 
 # --- 开发者与效率 ---
 https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.list, policy=GitHub, tag=GitHub, enabled=true
@@ -203,3 +204,4 @@ hostname=
 ca-p12=
 ca-passphrase=
 skip-server-cert-verify=false
+
