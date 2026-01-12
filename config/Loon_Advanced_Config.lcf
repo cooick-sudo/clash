@@ -112,7 +112,7 @@ Final = select, 国外, 国内, img-url=https://github.voxelcat.net/https://raw.
 英国-故转 = fallback, 英国节点, interval=60, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/UK.png
 
 低倍率-自动 = url-test, 流媒体节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png
-低倍率-手动 = select, 流媒体节点, img-url=hhttps://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png
+低倍率-手动 = select, 流媒体节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png
 
 所有-自动 = url-test, 全球节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png
 所有-手动 = select, 全球节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png
@@ -205,6 +205,7 @@ hostname=
 ca-p12=
 ca-passphrase=
 skip-server-cert-verify=false
+
 
 
 
