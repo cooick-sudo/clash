@@ -1,0 +1,203 @@
+# Loon 进阶配置 - 此配置文件自动选择网络时延最低的代理节点，无需人工干预，所有过程完全自动化。当连接到配备透明代理的路由器时，Loon 将使用“直连”策略，此时所有流量直接通过你的路由器；在其他网络环境中，Loon 将使用自身的“自动分流”模式访问这些网站，从而避免在已使用透明代理路由器时出现双重代理。
+# Date: 2025-11-08 00:21:37
+# Author: https://t.me/iKeLee
+# 更多插件可前往 https://hub.kelee.one 安装
+
+[General]
+ip-mode=v4-only
+ipv6-vif=off
+dns-server=system
+sni-sniffing=true
+disable-stun=true
+dns-reject-mode=LoopbackIP
+domain-reject-mode=DNS
+udp-fallback-mode=REJECT
+wifi-access-http-port=7222
+wifi-access-socks5-port=7221
+allow-wifi-access=false
+interface-mode=auto
+test-timeout=5
+disconnect-on-policy-change=false
+internet-test-url=http://connectivitycheck.platform.hicloud.com/generate_204
+proxy-test-url=http://www.gstatic.com/generate_204
+resource-parser=https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
+geoip-url=https://geodata.kelee.one/Country-Masaiki.mmdb
+ipasn-url=https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
+skip-proxy=192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, e.crashlynatics.com
+bypass-tun=10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
+
+[Proxy]
+
+[Remote Proxy]
+
+[Remote Filter]
+香港节点 = NameRegex, FilterKey = "(?i))广港|香港|HK|Hong Kong|🇭🇰"
+台湾节点 = NameRegex, FilterKey = "(?i)广台|台湾|台灣|TW|Tai Wan|🇹🇼|Taiwan"
+日本节点 = NameRegex, FilterKey = "(?i)广日|日本|JP|东京|大阪|🇯🇵|Japan"
+韩国节点 = NameRegex, FilterKey = "(?i)广韩|韩国|韓國|KR|首尔|🇰🇷|Korea"
+新加坡节点 = NameRegex, FilterKey = "(?i)广新|新加坡|SG|坡|狮城|🇸🇬|Singapore"
+美国节点 = NameRegex, FilterKey = "(?i)广美|美|US|纽约|波特兰|达拉斯|洛杉矶|圣何塞|西雅图|🇺🇸|United States"
+英国节点 = NameRegex, FilterKey = "(?i)英国|英|伦敦|UK|United Kingdom|🇬🇧"
+流媒体节点 = NameRegex, FilterKey = "0.2|0.5|实验性"
+全球节点 = NameRegex, FilterKey = ".*"
+小众地区 = NameRegex, FilterKey = "^(?=.*)(?!.*(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|广台|台湾|TW|Tai Wan|🇹🇼|广日|日本|JP|东京|大阪|🇯🇵|广新|新加坡|SG|坡|🇸🇬|广韩|韩国|KR|首尔|🇰🇷|广美|美|US|纽约|🇺🇸|英国|UK|🇬🇧)).*$"
+
+[Proxy Group]
+# --- 1. 核心分流 (引用场景组) ---
+AI = select, 美国-场景, 英国-场景, 新加坡-场景, 日本-场景, 台湾-场景, 香港-场景, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/ChatGPT.png
+GitHub = select, 香港-场景, 美国-场景, 日本-场景, 新加坡-场景, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/GitHub.png
+Apple = select, DIRECT, 香港-场景, 美国-场景, 日本-场景, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Apple.png
+Microsoft = select, DIRECT, 香港-场景, 美国-场景, 日本-场景, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Microsoft.png
+Stream Media = select, 香港-场景, 台湾-场景, 日本-场景, 美国-场景, 韩国-场景, 新加坡-场景, 英国-场景, 低倍率-场景, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png
+PayPal = select, 美国-场景, 英国-场景, 新加坡-场景, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/PayPal_business.png
+Steam = select, DIRECT, 香港-场景, 美国-场景, 日本-场景, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Steam.png
+Test = select, 所有-场景, 香港-场景, 美国-场景, 日本-场景, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Flight.png
+国外 = select, 香港-场景, 美国-场景, 日本-场景, 台湾-场景, 韩国-场景, 新加坡-场景, 英国-场景, 其他地区, 所有-场景, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Omission.png
+国内 = select, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China.png
+Final = select, 国外, 国内, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Omission.png
+
+# --- 2. 兜底策略 ---
+兜底后备策略 = fallback, 香港-场景, 台湾-场景, 新加坡-场景, 日本-场景, 美国-场景, 韩国-场景, 英国-场景, interval=60, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Other.png
+
+# --- 3. 场景策略组 (SSID 自动切换) ---
+# 当连接到 nako_5G 或 FENG_J_5G 时，所有地区策略都会强制直连
+香港-场景 = ssid, default=香港, cellular=香港, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+美国-场景 = ssid, default=美国, cellular=美国, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+日本-场景 = ssid, default=日本, cellular=日本, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+台湾-场景 = ssid, default=台湾, cellular=台湾, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+韩国-场景 = ssid, default=韩国, cellular=韩国, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+新加坡-场景 = ssid, default=新加坡, cellular=新加坡, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+英国-场景 = ssid, default=英国, cellular=英国, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+低倍率-场景 = ssid, default=低倍率, cellular=低倍率, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+所有-场景 = ssid, default=所有地区, cellular=所有地区, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+
+# --- 4. 地区功能子组 (自动/手动/故转) ---
+香港-故转 = fallback, 香港-自动, 香港-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png
+美国-故转 = fallback, 美国-自动, 美国-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/USA.png
+日本-故转 = fallback, 日本-自动, 日本-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Japan.png
+台湾-故转 = fallback, 台湾-自动, 台湾-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China_Taipei.png
+韩国-故转 = fallback, 韩国-自动, 韩国-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/South_Korea.png
+新加坡-故转 = fallback, 新加坡-自动, 新加坡-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Singapore.png
+英国-故转 = fallback, 英国-自动, 英国-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/UK.png
+低倍率-故转 = fallback, 低倍率-自动, 低倍率-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png
+所有地区-故转 = fallback, 所有-自动, 所有-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png
+其他地区-故转 = fallback, 其他-自动, 其他-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Other.png
+
+香港-自动 = url-test, 香港节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png
+香港-手动 = select, 香港节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png
+
+美国-自动 = url-test, 美国节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/USA.png
+美国-手动 = select, 美国节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/USA.png
+
+日本-自动 = url-test, 日本节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Japan.png
+日本-手动 = select, 日本节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Japan.png
+
+台湾-自动 = url-test, 台湾节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China_Taipei.png
+台湾-手动 = select, 台湾节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China_Taipei.png
+
+韩国-自动 = url-test, 韩国节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/South_Korea.png
+韩国-手动 = select, 韩国节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/South_Korea.png
+
+新加坡-自动 = url-test, 新加坡节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Singapore.png
+新加坡-手动 = select, 新加坡节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Singapore.png
+
+英国-自动 = url-test, 英国节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/UK.png
+英国-手动 = select, 英国节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/UK.png
+
+低倍率-自动 = url-test, 流媒体节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png
+低倍率-手动 = select, 流媒体节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png
+
+所有-自动 = url-test, 全球节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png
+所有-手动 = select, 全球节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png
+
+其他-自动 = url-test, 小众地区, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Other.png
+其他-手动 = select, 小众地区, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Other.png
+
+[Rule]
+# 当配置文件中没有任何有效策略组时，Loon将使用内置的PROXY策略组
+# 当配置文件中存在有效的策略组时，内置的PROXY策略组将不再允许被调用，仅可使用用户配置的策略组
+# 配置文件已自带远程GEOIP, cn, DIRECT规则，请勿在此添加
+# 请勿修改远程CN REGION规则的排序甚至删除
+DOMAIN-SUFFIX,223789.xyz,DIRECT
+DOMAIN-SUFFIX,289278.xyz,DIRECT
+DOMAIN-SUFFIX,cn2gias.uk,Stream Media
+DOMAIN-SUFFIX,sexemby.com,Stream Media
+DOMAIN-SUFFIX,niceduck.lol,Stream Media
+DOMAIN-SUFFIX,023168.xyz,Stream Media
+IP-CIDR, 28.0.0.1/8, DIRECT
+IP-CIDR, 198.18.0.1/16, DIRECT
+IP-CIDR, 198.18.0.0/15, DIRECT
+IP-CIDR6, fc00::/18, DIRECT
+FINAL, 兜底后备策略
+
+[Remote Rule]
+# --- AI 相关 ---
+https://github.voxelcat.net/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-!cn.list, policy=AI, tag=AI, enabled=true
+
+# --- 社交与娱乐 ---
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.list, policy=Stream Media, tag=TikTok, enabled=true
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.list, policy=Stream Media, tag=Netflix, enabled=true
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.list, policy=Stream Media, tag=Netflix_IP, enabled=true
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/disney.list, policy=Stream Media, tag=Disney, enabled=true
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/hbo.list, policy=Stream Media, tag=HBO, enabled=true
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/amazon.list, policy=Stream Media, tag=Amazon, enabled=true
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.list, policy=Stream Media, tag=Spotify, enabled=true
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/pikpak.list, policy=Stream Media, tag=PiaPak, enabled=true
+
+# --- 开发者与效率 ---
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.list, policy=GitHub, tag=GitHub, enabled=true
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.list, policy=Microsoft, tag=Microsoft, enabled=true
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.list, policy=PayPal, tag=PayPal, enabled=true
+
+# --- 苹果服务 ---
+# 苹果直连规则（包含 Apple-CN）
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.list, policy=Apple, tag=Apple, enabled=true
+# 苹果分流规则
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.list, policy=Apple, tag=Apple-CN, enabled=true
+
+# --- 游戏相关 ---
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam.list, policy=Steam, tag=Steam, enabled=true
+https://github.voxelcat.net/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Epic/Epic.list, policy=Steam, tag=Epic, enabled=true
+
+# --- 基础与通用分流 ---
+# 测速规则
+https://github.voxelcat.net/https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Check.list, policy=Test, tag=Speedtest, enabled=true
+# 通用代理列表
+https://github.voxelcat.net/https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Proxy.list, policy=其他地区, tag=Proxy-List, enabled=true
+# 全球规则（兜底补位）
+https://github.voxelcat.net/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global.list, policy=国外, tag=Global, enabled=true
+# 国内直连
+https://github.voxelcat.net/https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Direct.list, policy=DIRECT, tag=Direct-List, enabled=true
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.list, policy=DIRECT, tag=CN, enabled=true
+# 中国地区 IP 分流
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.list, policy=DIRECT, tag=China-IP, enabled=true
+https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.list, policy=DIRECT, tag=Private, enabled=true
+
+
+[Host]
+ssid:nako_5G = server:192.168.5.1
+ssid:FENG_J_5G = server:192.168.100.1
+
+[Rewrite]
+
+[Script]
+
+[Plugin]
+https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/QuickSearch.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Prevent_DNS_Leaks.lpx, policy=兜底后备策略, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/TestFlightRegionUnlock.lpx, policy=DIRECT, enabled=false
+https://kelee.one/Tool/Loon/Lpx/BoxJs.lpx, policy=兜底后备策略, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, policy=兜底后备策略, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Script-Hub.lpx, policy=兜底后备策略, enabled=true
+
+[Mitm]
+hostname=
+ca-p12=
+ca-passphrase=
+skip-server-cert-verify=false
+
+
+
