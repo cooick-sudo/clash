@@ -43,46 +43,52 @@ bypass-tun=10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12
 小众地区 = NameRegex, FilterKey = "(?i)^(?!.*(直连|拒绝|广港|香港|HK|广台|台湾|TW|广日|日本|JP|广新|新加坡|SG|广韩|韩国|KR|广美|美|US|英国|UK|0.2|0.5|实验性|Traffic|Expire|剩余流量|到期时间)).*$"
 
 [Proxy Group]
-# --- 1. 核心分流 (引用场景组) ---
-AI = select, 美国-场景, 英国-场景, 新加坡-场景, 日本-场景, 台湾-场景, 香港-场景, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/ChatGPT.png
-GitHub = select, 香港-场景, 美国-场景, 日本-场景, 新加坡-场景, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/GitHub.png
-Apple = select, DIRECT, 香港-场景, 美国-场景, 日本-场景, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Apple.png
-Microsoft = select, DIRECT, 香港-场景, 美国-场景, 日本-场景, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Microsoft.png
-Stream Media = select, 香港-场景, 台湾-场景, 日本-场景, 美国-场景, 韩国-场景, 新加坡-场景, 英国-场景, 低倍率-场景, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png
-PayPal = select, 美国-场景, 英国-场景, 新加坡-场景, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/PayPal_business.png
-Steam = select, DIRECT, 香港-场景, 美国-场景, 日本-场景, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Steam.png
-Test = select, 所有-场景, 香港-场景, 美国-场景, 日本-场景, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Flight.png
-国外 = select, 香港-场景, 美国-场景, 日本-场景, 台湾-场景, 韩国-场景, 新加坡-场景, 英国-场景, 其他地区, 所有-场景, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Omission.png
-国内 = select, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China.png
+
+# ==========================================================
+# 1. 自动化网关 (所有的自动化逻辑集中在这里)
+# ==========================================================
+# 当在 nako_5G 或 FENG_J_5G 时，此组自动变为 DIRECT，从而带动所有引用它的业务组直连
+网络环境 = ssid, default=手动选路, cellular=手动选路, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+
+# ==========================================================
+# 2. 全球主控 (相当于你的 *pr 锚点)
+# ==========================================================
+# 你平时只需要在这里切一次，所有业务组（AI、GitHub、国外等）都会同步切换
+手动选路 = select, 香港-策略, 台湾-策略, 日本-策略, 新加坡-策略, 韩国-策略, 美国-策略, 英国-策略, 其他地区-策略, 所有地区-策略, 低倍率-策略, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png
+
+# ==========================================================
+# 3. 业务分流组 (引用“网络环境”实现自动化)
+# ==========================================================
+# 逻辑：首选“网络环境”。如果要手动覆盖，后面跟了具体的地区策略
+AI = select, 网络环境, 美国-策略, 英国-策略, 新加坡-策略, 日本-策略, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/ChatGPT.png
+GitHub = select, 网络环境, 香港-策略, 美国-策略, 日本-策略, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/GitHub.png
+Apple = select, DIRECT, 网络环境, 香港-策略, 美国-策略, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Apple.png
+Microsoft = select, DIRECT, 网络环境, 香港-策略, 美国-策略, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Microsoft.png
+Stream Media = select, 网络环境, 低倍率-策略, 香港-策略, 台湾-策略, 日本-策略, 美国-策略, 新加坡-策略, 韩国-策略, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png
+PayPal = select, 网络环境, 美国-策略, 英国-策略, 新加坡-策略, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/PayPal_business.png
+Steam = select, DIRECT, 网络环境, 香港-策略, 美国-策略, 日本-策略, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Steam.png
+Test = select, 所有地区-策略, 网络环境, 香港-策略, 美国-策略, 日本-策略, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Flight.png
+国外 = select, 网络环境, 手动选路, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Omission.png
+国内 = select, DIRECT, 网络环境, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China.png
 Final = select, 国外, 国内, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Omission.png
 
-# --- 2. 兜底策略 ---
-兜底后备策略 = fallback, 香港-场景, 台湾-场景, 新加坡-场景, 日本-场景, 美国-场景, 韩国-场景, 英国-场景, interval=60, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Other.png
+# ==========================================================
+# 4. 地区策略中转 (负责 自动/手动 切换)
+# ==========================================================
+香港-策略 = select, 香港-自动, 香港-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png
+美国-策略 = select, 美国-自动, 美国-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/USA.png
+日本-策略 = select, 日本-自动, 日本-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Japan.png
+台湾-策略 = select, 台湾-自动, 台湾-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China_Taipei.png
+韩国-策略 = select, 韩国-自动, 韩国-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/South_Korea.png
+新加坡-策略 = select, 新加坡-自动, 新加坡-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Singapore.png
+英国-策略 = select, 英国-自动, 英国-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/UK.png
+低倍率-策略 = select, 低倍率-自动, 低倍率-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png
+所有地区-策略 = select, 所有-自动, 所有-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png
+其他地区-策略 = select, 其他-自动, 其他-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Other.png
 
-# --- 3. 场景策略组 (SSID 自动切换) ---
-# 当连接到 nako_5G 或 FENG_J_5G 时，所有地区策略都会强制直连
-香港-场景 = ssid, default=香港, cellular=香港, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-美国-场景 = ssid, default=美国, cellular=美国, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-日本-场景 = ssid, default=日本, cellular=日本, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-台湾-场景 = ssid, default=台湾, cellular=台湾, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-韩国-场景 = ssid, default=韩国, cellular=韩国, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-新加坡-场景 = ssid, default=新加坡, cellular=新加坡, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-英国-场景 = ssid, default=英国, cellular=英国, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-低倍率-场景 = ssid, default=低倍率, cellular=低倍率, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-所有-场景 = ssid, default=所有地区, cellular=所有地区, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-
-# --- 4. 地区功能子组 (自动/手动/故转) ---
-香港-故转 = fallback, 香港-自动, 香港-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png
-美国-故转 = fallback, 美国-自动, 美国-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/USA.png
-日本-故转 = fallback, 日本-自动, 日本-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Japan.png
-台湾-故转 = fallback, 台湾-自动, 台湾-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China_Taipei.png
-韩国-故转 = fallback, 韩国-自动, 韩国-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/South_Korea.png
-新加坡-故转 = fallback, 新加坡-自动, 新加坡-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Singapore.png
-英国-故转 = fallback, 英国-自动, 英国-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/UK.png
-低倍率-故转 = fallback, 低倍率-自动, 低倍率-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png
-所有地区-故转 = fallback, 所有-自动, 所有-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png
-其他地区-故转 = fallback, 其他-自动, 其他-手动, interval=60, max-timeout=2000, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Other.png
-
+# ==========================================================
+# 5. 节点底层测速 (由 Sub-Store 筛选出的节点集)
+# ==========================================================
 香港-自动 = url-test, 香港节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png
 香港-手动 = select, 香港节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png
 
@@ -198,6 +204,7 @@ hostname=
 ca-p12=
 ca-passphrase=
 skip-server-cert-verify=false
+
 
 
 
