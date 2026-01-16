@@ -31,7 +31,7 @@ bypass-tun=10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12
 [Remote Proxy]
 
 [Remote Filter]
-香港节点 = NameRegex, FilterKey = "(?i))广港|香港|HK|Hong Kong|🇭🇰"
+香港节点 = NameRegex, FilterKey = "(?i)广港|香港|HK|Hong Kong|🇭🇰"
 台湾节点 = NameRegex, FilterKey = "(?i)广台|台湾|台灣|TW|Tai Wan|🇹🇼|Taiwan"
 日本节点 = NameRegex, FilterKey = "(?i)广日|日本|JP|东京|大阪|🇯🇵|Japan"
 韩国节点 = NameRegex, FilterKey = "(?i)广韩|韩国|韓國|KR|首尔|🇰🇷|Korea"
@@ -198,6 +198,7 @@ hostname=
 ca-p12=
 ca-passphrase=
 skip-server-cert-verify=false
+
 
 
 
