@@ -61,27 +61,27 @@ Final = select, 国外, 国内, img-url=https://github.voxelcat.net/https://raw.
 
 # --- 3. 场景策略组 (SSID 自动切换) ---
 # 当连接到 nako_5G 或 FENG_J_5G 时，所有地区策略都会强制直连
-香港-场景 = ssid, default=香港-策略, cellular=香港-策略, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-美国-场景 = ssid, default=美国-策略, cellular=美国-策略, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-日本-场景 = ssid, default=日本-策略, cellular=日本-策略, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-台湾-场景 = ssid, default=台湾-策略, cellular=台湾-策略, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-韩国-场景 = ssid, default=韩国-策略, cellular=韩国-策略, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-新加坡-场景 = ssid, default=新加坡-策略, cellular=新加坡-策略, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-英国-场景 = ssid, default=英国-策略, cellular=英国-策略, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-低倍率-场景 = ssid, default=低倍率-策略, cellular=低倍率-策略, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
-所有-场景 = ssid, default=所有地区-策略, cellular=所有地区, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+香港-场景 = ssid, default=香港, cellular=香港, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+美国-场景 = ssid, default=美国, cellular=美国, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+日本-场景 = ssid, default=日本, cellular=日本, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+台湾-场景 = ssid, default=台湾, cellular=台湾, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+韩国-场景 = ssid, default=韩国, cellular=韩国, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+新加坡-场景 = ssid, default=新加坡, cellular=新加坡, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+英国-场景 = ssid, default=英国, cellular=英国, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+低倍率-场景 = ssid, default=低倍率, cellular=低倍率, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
+所有-场景 = ssid, default=所有地区, cellular=所有地区, "nako_5G"=DIRECT, "FENG_J_5G"=DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Yin_Yang.png
 
-# --- 4. 地区功能子组 (手动切换 自动/手动) ---
-香港-策略 = select, 香港-自动, 香港-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png
-美国-策略 = select, 美国-自动, 美国-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/USA.png
-日本-策略 = select, 日本-自动, 日本-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Japan.png
-台湾-策略 = select, 台湾-自动, 台湾-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China_Taipei.png
-韩国-策略 = select, 韩国-自动, 韩国-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/South_Korea.png
-新加坡-策略 = select, 新加坡-自动, 新加坡-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Singapore.png
-英国-策略 = select, 英国-自动, 英国-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/UK.png
-低倍率-策略 = select, 低倍率-自动, 低倍率-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png
-所有地区-策略 = select, 所有-自动, 所有-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png
-其他地区-策略 = select, 其他-自动, 其他-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Other.png
+# --- 4. 地区功能子组 (自动/手动/故转) ---
+香港 = select, 香港-自动, 香港-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png
+美国 = select, 美国-自动, 美国-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/USA.png
+日本 = select, 日本-自动, 日本-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Japan.png
+台湾 = select, 台湾-自动, 台湾-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China_Taipei.png
+韩国 = select, 韩国-自动, 韩国-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/South_Korea.png
+新加坡 = select, 新加坡-自动, 新加坡-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Singapore.png
+英国 = select, 英国-自动, 英国-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/UK.png
+低倍率 = select, 低倍率-自动, 低倍率-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png
+所有地区 = select, 所有-自动, 所有-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png
+其他地区 = select, 其他-自动, 其他-手动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Other.png
 
 香港-自动 = url-test, 香港节点, interval=60, tolerance=50, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png
 香港-手动 = select, 香港节点, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png
@@ -198,3 +198,6 @@ hostname=
 ca-p12=
 ca-passphrase=
 skip-server-cert-verify=false
+
+
+
