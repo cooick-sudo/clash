@@ -1,10 +1,9 @@
 # 内容：Emby Proxy
 # 比较全面的各家 Emby 地址
-payload:
- 
-  - DOMAIN-SUFFIX,023168.xyz
-  - DOMAIN-SUFFIX,cn2gias.uk
-  - DOMAIN-SUFFIX,db.jiedaibao.gs
-  - DOMAIN-SUFFIX,niceduck.lol
-  - DOMAIN-SUFFIX,irisnb.com
+
+DOMAIN-SUFFIX,023168.xyz
+DOMAIN-SUFFIX,cn2gias.uk
+DOMAIN-SUFFIX,db.jiedaibao.gs
+DOMAIN-SUFFIX,niceduck.lol
+DOMAIN-SUFFIX,irisnb.com
  
