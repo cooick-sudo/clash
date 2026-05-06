@@ -76,9 +76,9 @@ Apple = select,DIRECT,香港-自动,台湾-自动,新加坡-自动,美国-自动
 Microsoft = select, DIRECT, 香港-自动,台湾-自动,新加坡-自动,美国-自动,日本-自动,韩国-自动, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Microsoft.png
 Stream Media = select,流媒体-自动,流媒体-手动,img-url = https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png
 国外 = select,香港-自动,台湾-自动,新加坡-自动,美国-自动,日本-自动,韩国-自动,img-url = https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Omission.png
-微信消息 = DIRECT,img-url = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/wechat.png
-微博服务 = DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Weibo.png
-大陆抖音 = DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok_2.png
+微信消息 = select, DIRECT,img-url = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/wechat.png
+微博服务 = select, DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Weibo.png
+大陆抖音 = select, DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok_2.png
 国内 = select, DIRECT, img-url=https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China.png
 兜底策略 = allback,香港-自动,台湾-自动,新加坡-自动,美国-自动,日本-自动,韩国-自动,DIRECT,img-url = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Loon_02.png
 
