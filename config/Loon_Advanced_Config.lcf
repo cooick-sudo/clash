@@ -6,7 +6,7 @@
 [General]
 ip-mode=v4-only
 ipv6-vif=off
-dns-server=system
+dns-server = 119.29.29.29, 223.5.5.5, system
 sni-sniffing=true
 disable-stun=true
 dns-reject-mode=LoopbackIP
@@ -127,10 +127,6 @@ Final = select, 国外, 国内, img-url=https://github.voxelcat.net/https://raw.
 # 请勿修改远程CN REGION规则的排序甚至删除
 DOMAIN-SUFFIX,223789.xyz,DIRECT
 DOMAIN-SUFFIX,289278.xyz,DIRECT
-DOMAIN-SUFFIX,cn2gias.uk,Stream Media
-DOMAIN-SUFFIX,sexemby.com,Stream Media
-DOMAIN-SUFFIX,niceduck.lol,Stream Media
-DOMAIN-SUFFIX,023168.xyz,Stream Media
 IP-CIDR, 28.0.0.1/8, DIRECT
 IP-CIDR, 198.18.0.1/16, DIRECT
 IP-CIDR, 198.18.0.0/15, DIRECT
@@ -150,6 +146,7 @@ https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rul
 https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/amazon.list, policy=Stream Media, tag=Amazon, enabled=true
 https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.list, policy=Stream Media, tag=Spotify, enabled=true
 https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/pikpak.list, policy=Stream Media, tag=PiaPak, enabled=true
+https://github.voxelcat.net/https://raw.githubusercontent.com/cooick-sudo/clash/refs/heads/main/rules/Emby.list, policy=Stream Media, tag=Emby, enabled=true
 
 # --- 开发者与效率 ---
 https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.list, policy=GitHub, tag=GitHub, enabled=true
