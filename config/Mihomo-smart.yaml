@@ -82,7 +82,7 @@ tun:
 dns:
   enable: true
   listen: 0.0.0.0:1053
-  ipv6: false
+  ipv6: true
   respect-rules: true
   enhanced-mode: fake-ip
   fake-ip-range: 28.0.0.1/8
@@ -140,32 +140,32 @@ proxy-groups:
   - {name: 所有-手选, type: select, include-all: true, filter: "^((?!(直连|拒绝)).)*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png"}
   - {name: 所有-智选, type: smart, include-all: true, policy-priority: ".*牛逼.*:0.8;.*(香港|HK).*:1.2", uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "^((?!(直连|拒绝)).)*$"}
   - {name: 香港-故转, type: fallback, interval: 300, lazy: false, proxies: ["香港-手选", "香港-智选"], icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png"}
-  - {name: 香港-手选, type: select, include-all: true, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png"}
-  - {name: 香港-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png"}
+  - {name: 香港-手选, type: select, include-all: true, filter: "(?i)^(?!.*(0.2x|0.5|实验性)).*(广港|香港|HK|Hong Kong|🇭🇰)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png"}
+  - {name: 香港-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter:  "(?i)^(?!.*(0.2x|0.5|实验性)).*(广港|香港|HK|Hong Kong|🇭🇰)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png"}
   - {name: 台湾-故转, type: fallback, interval: 300, lazy: false, proxies: ["台湾-手选", "台湾-智选"], icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China_Taipei.png"}
-  - {name: 台湾-手选, type: select, include-all: true, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China_Taipei.png"}
-  - {name: 台湾-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China_Taipei.png"}
+  - {name: 台湾-手选, type: select, include-all: true, filter: "(?i)^(?!.*(0.2x|0.5|实验性)).*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|Taiwan)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China_Taipei.png"}
+  - {name: 台湾-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "(?i)^(?!.*(0.2x|0.5|实验性)).*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|Taiwan)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/China_Taipei.png"}
   - {name: 日本-故转, type: fallback, interval: 300, lazy: false, proxies: ["日本-手选", "日本-智选"], icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Japan.png"}
-  - {name: 日本-手选, type: select, include-all: true, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Japan.png"}
-  - {name: 日本-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Japan.png"}
+  - {name: 日本-手选, type: select, include-all: true, filter: "(?i)^(?!.*(0.2x|0.5|实验性)).*(广日|日本|JP|东京|大阪|🇯🇵|Japan)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Japan.png"}
+  - {name: 日本-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "(?i)^(?!.*(0.2x|0.5|实验性)).*(广日|日本|JP|东京|大阪|🇯🇵|Japan)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Japan.png"}
   - {name: 新加坡-故转, type: fallback, interval: 300, lazy: false, proxies: ["新加坡-手选", "新加坡-智选"], icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Singapore.png"}
-  - {name: 新加坡-手选, type: select, include-all: true, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Singapore.png"}
-  - {name: 新加坡-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Singapore.png"}
+  - {name: 新加坡-手选, type: select, include-all: true, filter: "(?i)^(?!.*(0.2x|0.5|实验性)).*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Singapore.png"}
+  - {name: 新加坡-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "(?i)^(?!.*(0.2x|0.5|实验性)).*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Singapore.png"}
   - {name: 韩国-故转, type: fallback, interval: 300, lazy: false, proxies: ["韩国-手选", "韩国-智选"], icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/South_Korea.png"}
-  - {name: 韩国-手选, type: select, include-all: true, filter: "(?=.*(广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/South_Korea.png"}
-  - {name: 韩国-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "(?=.*(广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/South_Korea.png"}
+  - {name: 韩国-手选, type: select, include-all: true, filter: "(?i)^(?!.*(0.2x|0.5|实验性)).*(广韩|韩国|韓國|KR|首尔|🇰🇷|Korea)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/South_Korea.png"}
+  - {name: 韩国-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "(?i)^(?!.*(0.2x|0.5|实验性)).*(广韩|韩国|韓國|KR|首尔|🇰🇷|Korea)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/South_Korea.png"}
   - {name: 美国-故转, type: fallback, interval: 300, lazy: false, proxies: ["美国-手选", "美国-智选"], icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/USA.png"}
-  - {name: 美国-手选, type: select, include-all: true, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/USA.png"}
-  - {name: 美国-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/USA.png"}
+  - {name: 美国-手选, type: select, include-all: true, filter: "(?i)^(?!.*(0.2x|0.5|实验性)).*(广美|美|US|纽约|波特兰|达拉斯|洛杉矶|圣何塞|西雅图|🇺🇸|United States)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/USA.png"}
+  - {name: 美国-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "(?i)^(?!.*(0.2x|0.5|实验性)).*(广美|美|US|纽约|波特兰|达拉斯|洛杉矶|圣何塞|西雅图|🇺🇸|United States)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/USA.png"}
   - {name: 英国-故转, type: fallback, interval: 300, lazy: false, proxies: ["英国-手选", "英国-智选"], icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/UK.png"}
-  - {name: 英国-手选, type: select, include-all: true, filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/UK.png"}
-  - {name: 英国-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/UK.png"}
+  - {name: 英国-手选, type: select, include-all: true, filter: "(?i)^(?!.*(0.2x|0.5|实验性)).*(英国|英|伦敦|UK|United Kingdom|🇬🇧)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/UK.png"}
+  - {name: 英国-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "(?i)^(?!.*(0.2x|0.5|实验性)).*(英国|英|伦敦|UK|United Kingdom|🇬🇧)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/UK.png"}
   - {name: 其他-故转, type: fallback, interval: 300, lazy: false, proxies: ["其他-手选", "其他-智选"], icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png"}
-  - {name: 其他-手选, type: select, include-all: true, filter: "^((?!(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|英国|UK|United Kingdom|伦敦|英|London|🇬🇧)).)*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png"}
-  - {name: 其他-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "^((?!(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States|英国|UK|United Kingdom|伦敦|英|London|🇬🇧)).)*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png"}
+  - {name: 其他-手选, type: select, include-all: true, filter: "^(?=.*)(?!.*(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|广台|台湾|TW|Tai Wan|🇹🇼|广日|日本|JP|东京|大阪|🇯🇵|广新|新加坡|SG|坡|🇸🇬|广韩|韩国|KR|首尔|🇰🇷|广美|美|US|纽约|🇺🇸|英国|UK|🇬🇧0.2x|0.5|实验性)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png"}
+  - {name: 其他-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "^(?=.*)(?!.*(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|广台|台湾|TW|Tai Wan|🇹🇼|广日|日本|JP|东京|大阪|🇯🇵|广新|新加坡|SG|坡|🇸🇬|广韩|韩国|KR|首尔|🇰🇷|广美|美|US|纽约|🇺🇸|英国|UK|🇬🇧0.2x|0.5|实验性)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png"}
   - {name: 流媒体-故转, type: fallback, interval: 300, lazy: false, proxies: ["流媒体-手选", "流媒体-智选"], icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png"}
-  - {name: 流媒体-手选, type: select, include-all: true, filter: "(?=.*(0.2x|0.5x|实验性)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png"}
-  - {name: 流媒体-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "(?=.*(0.2x|0.5x)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png"}  
+  - {name: 流媒体-手选, type: select, include-all: true, filter: "(?i)(0.2x|0.5|实验性)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png"}
+  - {name: 流媒体-智选, type: smart, include-all: true, uselightgbm: true, collectdata: false, health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 60, tolerance: 2}, strategy: sticky-sessions, interval: 180, filter: "(?i)(0.2x|0.5|实验性)", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Netflix_b.png"}  
   - {name: 链式落地, type: select, include-all: true, filter: "(?=.*(链式)).*$", icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Global.png"}
 
 
@@ -173,19 +173,13 @@ proxy-groups:
 # 规则引擎（rules）
 # ========================
 rules:
-  - DOMAIN-SUFFIX,accounts.google.com,美国-故转
-  - DOMAIN-SUFFIX,huggingface.co,国外
-  - DOMAIN-SUFFIX,289278.xyz,国内
-  - DOMAIN-SUFFIX,023168.xyz, Stream Media 
-  - DOMAIN-SUFFIX,niceduck.lol, Stream Media
-  - DOMAIN-SUFFIX,sexemby.com, Stream Media
-  - DOMAIN-SUFFIX,cn2gias.uk, Stream Media
-  - DOMAIN-SUFFIX,myip.ipip.net, 国内
-  - DOMAIN-SUFFIX,r.inews.qq.com, 国内
-  - DOMAIN-SUFFIX,ldvfx.com, 国内
+  - DOMAIN-SUFFIX,liblib.tv, 国内
+  - DOMAIN-SUFFIX,tapnow.ai, 国内
+  - DOMAIN-SUFFIX,ledupeiyou.com, 国内
   - DOMAIN-SUFFIX,weimaosheji.com, 国内
-  - DOMAIN-SUFFIX,qichiyu.com, 其他
-  - RULE-SET,ai, AI
+  ##- RULE-SET,ai, AI
+  - RULE-SET,ChatGPT, AI
+  - RULE-SET,Gemini, AI
   - RULE-SET,appleAI_domain,AI
   - RULE-SET,github_domain,GitHub
   - RULE-SET,apple_domain,Apple
@@ -198,6 +192,7 @@ rules:
   - RULE-SET,hbo_domain,Stream Media
   - RULE-SET,amazon_domain,Stream Media
   - RULE-SET,spotify_domain,Stream Media
+  - RULE-SET,Emby_domain,Stream Media
   - RULE-SET,paypal_domain, PayPal
   - RULE-SET,steam_domain,Steam
   - RULE-SET,epic_domain,Steam
@@ -229,7 +224,9 @@ rule-anchor:
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 
 rule-providers:
-  ai: {  <<: *domain, url: "https://github.voxelcat.net/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-!cn.mrs" }
+  ##ai: {<<: *domain, url: "https://github.voxelcat.net/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-!cn.mrs" }
+  ChatGPT: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/openai.mrs"}
+  Gemini: {<<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Gemini.list"}
   appleAI_domain: {<<: *domain, url: "https://github.voxelcat.net/https://raw.githubusercontent.com/cooick-sudo/apple_AI/refs/heads/main/apple_AI.list"} 
   github_domain: {<<: *domain, url: "https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
   apple_domain: {<<: *domain, url: "https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"} 
@@ -242,6 +239,7 @@ rule-providers:
   hbo_domain: {<<: *domain, url: "https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/hbo.mrs"}
   amazon_domain: {<<: *domain, url: "https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/amazon.mrs"}
   spotify_domain: {<<: *domain, url: "https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs"}
+  Emby_domain: { <<: *domain, url: "https://github.voxelcat.net/https://raw.githubusercontent.com/cooick-sudo/clash/refs/heads/main/rules/Emby.list"}
   paypal_domain: { <<: *domain, url: "https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs"}
   steam_domain: {<<: *domain, url: "https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam.mrs"}
   epic_domain: {<<: *class, url: "https://github.voxelcat.net/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Epic/Epic.list"}
