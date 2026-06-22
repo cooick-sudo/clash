@@ -1,4 +1,7 @@
-  - DOMAIN, ai.comfly.org, AI
-  - DOMAIN, ai.t8star.org, AI
-  - DOMAIN-SUFFIX, fuyaocode.shop, AI
-  - DOMAIN-SUFFIX, fuyao.shop, AI
+# NAME: API Rules
+# 建议走国外
+
+DOMAIN, ai.comfly.org, AI
+DOMAIN, ai.t8star.org, AI
+DOMAIN-SUFFIX, fuyaocode.shop, AI
+DOMAIN-SUFFIX, fuyao.shop, AI
