@@ -122,6 +122,7 @@ proxy-groups:
 # ========================
 
   - {name: AI, <<: *pr, icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/ChatGPT.png"}
+  - {name: API, <<: *pr, icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/ChatGPT.png"}
   - {name: GitHub, <<: *pr, icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/GitHub.png"}
   - {name: Apple, <<: *pr, icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Apple.png"}
   - {name: Microsoft, <<: *pr, icon: "https://github.voxelcat.net/https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Microsoft.png"}
@@ -422,30 +423,31 @@ proxy-groups:
 # 规则引擎（rules）
 # ========================
 rules:
-  - RULE-SET,ai, AI
-  - RULE-SET,appleAI_domain,AI
-  - RULE-SET,github_domain,GitHub
-  - RULE-SET,apple_domain,Apple
-  - RULE-SET,apple-CN_domain,Apple  
-  - RULE-SET,microsoft_domain,Microsoft
-  - RULE-SET,Emby_domain,Stream Media
-  - RULE-SET,tiktok_domain,Stream Media
-  - RULE-SET,netflix_domain,Stream Media
-  - RULE-SET,netflix_ip,Stream Media,no-resolve
-  - RULE-SET,disney_domain,Stream Media
-  - RULE-SET,hbo_domain,Stream Media
-  - RULE-SET,amazon_domain,Stream Media
-  - RULE-SET,spotify_domain,Stream Media
-  - RULE-SET,paypal_domain, PayPal
-  - RULE-SET,steam_domain,Steam
-  - RULE-SET,epic_domain,Steam
-  - RULE-SET,test_domain,Test
-  - RULE-SET,proxy_domain,其他
-  - RULE-SET,globe_domain,国外  
-  - RULE-SET,direct_domain,国内
-  - RULE-SET,cn_domain,直连
-  - RULE-SET,cn_ip,直连,no-resolve
-  - RULE-SET,private_domain,直连
+  - RULE-SET, ai, AI
+  - RULE-SET, api_domain, API
+  - RULE-SET, appleAI_domain, AI
+  - RULE-SET, github_domain, GitHub
+  - RULE-SET, apple_domain, Apple
+  - RULE-SET, apple-CN_domain, Apple  
+  - RULE-SET, microsoft_domain, Microsoft
+  - RULE-SET, Emby_domain, Stream Media
+  - RULE-SET, tiktok_domain, Stream Media
+  - RULE-SET, netflix_domain, Stream Media
+  - RULE-SET, netflix_ip, Stream Media, no-resolve
+  - RULE-SET, disney_domain, Stream Media
+  - RULE-SET, hbo_domain, Stream Media
+  - RULE-SET, amazon_domain, Stream Media
+  - RULE-SET, spotify_domain, Stream Media
+  - RULE-SET, paypal_domain, PayPal
+  - RULE-SET, steam_domain, Steam
+  - RULE-SET, epic_domain, Steam
+  - RULE-SET, test_domain, Test
+  - RULE-SET, proxy_domain, 其他
+  - RULE-SET, globe_domain, 国外  
+  - RULE-SET, direct_domain ,国内
+  - RULE-SET, cn_domain, 直连
+  - RULE-SET, cn_ip, 直连, no-resolve
+  - RULE-SET, private_domain, 直连
   - MATCH,其他
  # - RULE-SET,youtube_domain,YouTube
  # - RULE-SET,google_domain,Google
@@ -468,6 +470,7 @@ rule-anchor:
 
 rule-providers:
   ai: {  <<: *domain, url: "https://github.voxelcat.net/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-!cn.mrs" }
+  api_domain: {<<: *class, url: "https://github.voxelcat.net/https://raw.githubusercontent.com/cooick-sudo/clash/refs/heads/main/rules/API.list"}
   appleAI_domain: {<<: *domain, url: "https://github.voxelcat.net/https://raw.githubusercontent.com/cooick-sudo/apple_AI/refs/heads/main/apple_AI.list"} 
   github_domain: {<<: *domain, url: "https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
   apple_domain: {<<: *domain, url: "https://github.voxelcat.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"} 
